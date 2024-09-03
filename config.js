@@ -1,2 +1,2 @@
 console.log('config.js');
-console.log('hi4');
+console.log('hi2');
