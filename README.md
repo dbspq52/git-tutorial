@@ -1,62 +1,36 @@
 # 교통 사고 시각화 및 분석 시스템
 
-# 설치 방법
-# 1. 가상 환경 설정
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate     # Windows
+## 설치 방법
 
-# 2. requirements.txt 설치
-pip install -r requirements.txt
+1. **Python 가상 환경 설정**:
+    - **Mac/Linux**:
+      ```bash
+      python -m venv venv
+      source venv/bin/activate
+      ```
+    - **Windows**:
+      ```bash
+      python -m venv venv
+      venv\Scripts\activate
+      ```
 
-# 프로젝트 구조
-# .
-# ├── data/                   # 원본 및 전처리된 데이터 파일
-# │   ├── metr-la.h5          # LA 교통 속도 원본 데이터
-# │   ├── collision.csv       # 교통 사고 데이터
-# │   ├── Filtering.ipynb     # 데이터 매핑 및 필터링 노트북
-# │   ├── Collision_preprocessing.ipynb  # 사고 데이터 전처리 노트북
-# ├── templates/              # 시각화를 위한 HTML 템플릿
-# ├── static/                 # CSS, JS 등 정적 파일
-# ├── app.py                  # API 서버
-# ├── requirements.txt        # 의존성 패키지 리스트
-# └── README.md               # 프로젝트 설명 파일
+2. **의존성 설치**:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-# 시스템 구조
-# 1. 백엔드: Flask를 사용하여 API 제공
-#    - 데이터베이스와 통신하여 데이터를 가공하고 JSON 형태로 응답
-# 2. 프론트엔드: HTML, CSS, D3.js를 사용
-#    - 데이터 시각화 및 지도와 그래프를 통해 사용자 상호작용 지원
+---
 
-# 작동 흐름
-# 1. 홈 페이지:
-#    - 월별, 일별, 시간별 충돌 통계를 확인 가능
-#    - 지도에서 통계에 해당하는 충돌 지점 확인
-# 2. 충돌 지점 클릭 시 분석 페이지로 이동:
-#    - 충돌 2시간 전부터 6시간 후까지 데이터를 타임슬라이더로 확인
-#    - 지도에서 시간별 교통 흐름이 색상으로 표시
-#    - 출발지와 목적지를 설정해 최단 경로 계산
-#    - 반경 내 센서 속도의 평균값 그래프 제공
-# 3. 예측 데이터 생성:
-#    - 날짜, 시간, 충돌 위치 지정 후 6시간 후 데이터를 예측
-#    - 분석 페이지에서 예측값 기반으로 데이터 확인
-
-# 프로젝트 목표
-# - [x] 뉴욕시 교통 사고와 영향을 시각화 및 분석하는 시스템 개발
-# - [x] 사고 전후 교통 패턴 변화를 분석 및 시각화 도구 제공
-# - [x] 사고 영향의 시공간적 확산 예측 및 시각화 기능 구현
-
-# 평가 기준
-# 1. 데이터 분석 통찰력:
-#    - 충돌 이후 교통 속도 변화 분석
-#    - 지역별 사고 후 회복 시간과 패턴 도출
-# 2. 시각화 도구의 정보 전달력:
-#    - D3.js 기반 동적 시각화로 데이터 변화 직관적 표현
-# 3. 예측 모델의 성능:
-#    - 충돌 후 6시간 동안의 평균 속도 변화 예측
-# 4. 시스템의 확장성:
-#    - 새로운 데이터 통합 및 다양한 기능 확장 가능
-# 5. 프로젝트 결과물의 실용성:
-#    - 교통 관리 기관의 정책 설계 및 시뮬레이션 도구로 활용 가능
-# 6. 정책 결정 기여도:
-#    - 충돌 지역 분석 및 예방 전략 설계에 기여
+## 프로젝트 구조
+```plaintext
+.
+├── data/                   # 원본 및 전처리된 데이터 파일
+│   ├── metr-la.h5          # LA 교통 속도 원본 데이터
+│   ├── collision.csv       # 교통 사고 데이터
+│   ├── Filtering.ipynb     # 데이터 매핑 및 필터링 노트북
+│   ├── Collision_preprocessing.ipynb  # 사고 데이터 전처리 노트북
+├── templates/              # 시각화를 위한 HTML 템플릿
+├── static/                 # CSS, JS 등 정적 파일
+├── app.py                  # API 서버
+├── requirements.txt        # 의존성 패키지 리스트
+└── README.md               # 프로젝트 설명 파일
