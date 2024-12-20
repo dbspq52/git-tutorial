@@ -1,8 +1,12 @@
 # 교통 사고 시각화 및 분석 시스템
 
-## 설치 방법
+## 실행 방법
 
-1. **Python 가상 환경 설정**:
+1. **데이터 파일 배치**:
+    - 데이터 파일이 압축된 상태로 제공되었습니다.
+    - 해당 압축 파일을 **해제**한 후, 압축 해제된 파일들을 `data` 디렉터리에 배치해주십시오.
+
+2. **Python 가상 환경 설정**:
     - **Mac/Linux**:
       ```bash
       python -m venv venv
@@ -11,12 +15,17 @@
     - **Windows**:
       ```bash
       python -m venv venv
-      venv\Scripts\activate
+      venv\Scripts\activate 
       ```
 
-2. **의존성 설치**:
+3. **의존성 설치**:
     ```bash
     pip install -r requirements.txt
+    ```
+
+4. **애플리케이션 실행**:
+    ```bash
+    python app.py
     ```
 
 ---
