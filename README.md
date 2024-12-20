@@ -36,17 +36,39 @@
 ```plaintext
 .
 ├── data/                   # 원본 및 전처리된 데이터 파일
-│   ├── metr-la.h5          # LA 교통 속도 원본 데이터
-│   ├── collision.csv       # 교통 사고 데이터
-│   ├── Filtering.ipynb     # 데이터 매핑 및 필터링 노트북
-│   ├── Collision_preprocessing.ipynb  # 사고 데이터 전처리 노트북
+│   ├── metr-la.modified.h5    # LA 교통 속도 데이터
+|   ├── metr-la.modified.csv   # LA 교통 속도 데이터
+|   ├── graph_sensor_locations.csv #센서 위치 데이터
+│   ├── Filtering.csv        # 교통 사고 데이터 
+|   ├── predicted.csv        # stgcn에 쓸 속도 데이터
+│   ├── STGCN_metr-la.pt    # 학습한 파일
+│
+├──data_processing/
+│   ├── convert.py          #데이터 변환 할 파일
+│
 ├── templates/              # 시각화를 위한 HTML 템플릿
+│   ├── analysis_collision.html    # 단일 사고 분석
+|   ├── analysis_prediction.html   # STGCN 활용 page
+│   ├── index.html          # 홈 페이지 구성
+|
 ├── static/                 # CSS, JS 등 정적 파일
+│   ├──cs/
+|   │   ├──analysis_copy.css  #analysis_prediction.html에 대한 css
+│   │   ├──analysis_.css #analysis.html에 대한 css
+│   │   ├──style.css #index.html에 대한 css
+│   ├──js/
+│   │   ├──analysis_predict.js
+│   │   ├──analysis.js
+│   │   ├──analysis2_predict.js
+│   │   ├──analysis2.js
+│   │   ├──script.js
 ├── app.py                  # API 서버
+├── predict.py              # STGCN 관련 파일
+├── predict2.py             # STGCN 관련 파일
 ├── requirements.txt        # 의존성 패키지 리스트
 └── README.md               # 프로젝트 설명 파일
-```
 
+```
 ## 시스템 구조
 1. **백엔드**: Flask를 사용하여 API를 제공합니다.
    - **역할**: 데이터베이스와 통신하여 데이터를 가공하고, 클라이언트에 JSON 형태로 응답을 전달합니다.
